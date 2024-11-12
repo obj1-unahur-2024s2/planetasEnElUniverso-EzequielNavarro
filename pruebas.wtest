@@ -1,0 +1,29 @@
+import personas.*
+import planetas.*
+
+import construcciones.*
+describe "Test de planetas - Parte 1" {
+
+  const persona1 = new Persona(edad=65, monedas=50)
+  const persona2 = new Persona(edad=13, monedas=40)
+  const persona3 = new Persona(edad=16, monedas=10)
+  const persona4 = new Persona(edad=25, monedas=20)
+
+  const muralla1 = new Muralla(longitud = 10)
+  const muralla2 = new Muralla(longitud = 10)
+
+  const museo1 = new Museo(superficieCubierta=10, indiceImportancia=10)
+
+  const planeta1 = new Planeta()
+
+  method initialize(){
+    planeta1.agregarPersonas([persona1, persona2, persona3, persona4])
+    planeta1.agregarConstrucciones([muralla1, muralla2, museo1])
+  }
+
+  test "la delegacion diplomatica del planeta 1 esta formada por tres personas." {
+    
+    assert.equals(3, planeta1.delegacionDiplomatica().size() )
+  }
+
+}
